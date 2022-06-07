@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,6 +30,7 @@ public class AccountTest {
     }
 
     @Test
+    @DisplayName("Проверка конструктора класса Account. Тестирование условий задания имени")
     public void checkAccountConstructor(){
         Account account = new Account(name);
 
