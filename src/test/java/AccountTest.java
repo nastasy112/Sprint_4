@@ -15,7 +15,7 @@ public class AccountTest {
         this.expectedResult = expectedResult;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0} {1}")
     public static Object[][] checkNameToEmbossForName() {
         return new Object[][] {
                 { "Тимоти Шаламе", true},
@@ -25,7 +25,10 @@ public class AccountTest {
                 { "ТимотиШаламе ", false},
                 { "Хайко фон дер Ляйен", false},
                 { "ТимотейШевроле", false},
-                {"", false}
+                {"", false},
+                {null, false},
+                {"Т И", true},
+                {"Пакахонтес Лоуренсе", true}
         };
     }
 
