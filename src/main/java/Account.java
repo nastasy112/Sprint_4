@@ -1,6 +1,12 @@
+import lombok.NonNull;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Account {
 
     private final String name;
+    Pattern pattern = Pattern.compile("^(?=.{3,19}$)[А-ЯЁ][а-яё]*\\s[А-ЯЁ][а-яё]*$");
 
     public Account(String name) {
         this.name = name;
@@ -13,9 +19,11 @@ public class Account {
          */
 //        В классе Account задай проверки: длина, наличие пробела в начале или конце строки. Используй методы класса
 
-        if((!name.isEmpty()) & (name.length() >= 3) & (name.length() <= 19) & (name.contains(" ")) & (name.length() == (name.replace(" ", "").length() +1)) & (!name.endsWith(" ")) & (!name.startsWith(" "))){
-            return true;
-        } else
+        if(name == null){
             return false;
+        } else {
+            Matcher matcher = pattern.matcher(name);
+            return matcher.matches();
+        }
     }
 }
